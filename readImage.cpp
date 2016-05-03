@@ -19,8 +19,17 @@ int main(int argc, char** argv )
         printf("No image data \n");
         return -1;
     }
-    namedWindow("Display Image", WINDOW_AUTOSIZE );
-    imshow("Display Image", image);
+    Mat grayImage; 
+    // funcion que convierte una imagen a escala de grises
+    
+    cvtColor(image,grayImage, CV_BGR2GRAY);
+    
+    //crear el display y imshow arroja el resultado de la imagen
+    namedWindow("Imagen RGB", WINDOW_AUTOSIZE );
+    imshow("Imagen RGB", image);
+    // display e imagen en escala de grises
+    namedWindow("Image Gray", WINDOW_AUTOSIZE );
+    imshow("Image Gray", grayImage);
 
     waitKey(0);
 
